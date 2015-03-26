@@ -1,0 +1,16 @@
+.categoryList {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.categoryList > li {
+  position: relative;
+  display: block;
+}
+
+.categoryList > li > a {
+    display: block;
+    padding: 10px 5px;
+    position: relative;
+}

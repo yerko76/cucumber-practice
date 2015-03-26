@@ -1,0 +1,79 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'jetty'
+
+
+sourceCompatibility = 1.6
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+repositories {
+    jcenter()
+}
+
+ext {
+    springVersion = "4.1.1.RELEASE"
+}
+
+dependencies {
+    compile "org.slf4j:slf4j-log4j12:1.7.2"
+    compile "log4j:log4j:1.2.17"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "joda-time:joda-time:2.3"
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.14.6'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.3.+'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.3.+'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.3.+'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'org.springframework.data:spring-data-mongodb:1.6.0.RELEASE'
+    compile 'com.mangofactory:swagger-springmvc:0.8.8'
+    compile "org.ajar:swagger-spring-mvc-ui:0.2"
+    'org.springframework.security:spring-security-core:3.2.5.RELEASE'
+
+    testCompile ("junit:junit:4.11"){
+        exclude group: 'org.hamcrest'
+    }
+    testCompile ('org.mockito:mockito-core:1.10.8'){
+        exclude group: 'org.hamcrest'
+    }
+
+    testCompile "org.hamcrest:hamcrest-all:1.3"
+    testCompile "org.springframework:spring-test:$springVersion"
+    testCompile 'info.cukes:cucumber-core:1.1.8'
+    testCompile 'info.cukes:cucumber-spring:1.1.8'
+    testCompile 'info.cukes:cucumber-junit:1.1.8'
+
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+    test {
+        java {
+            srcDir 'src/test/java'
+        }
+        resources {
+            srcDir 'src/test/resources'
+        }
+    }
+    generated {
+        java {
+            srcDirs = ['src/main/generated']
+        }
+    }
+}
+
+

@@ -1,0 +1,41 @@
+<div class="cold-md-12" ng-controller="tabController">
+    <div class="page-header" align="center">
+        <h1>Nominees<small class="pull-right">Showing <span class="badge">{{nominees.length}}</span> Nominees</small></h1>
+        <div>
+            <div class="alert alert-success" role="alert">Vote Casted</div>
+        </div>
+    </div>
+<div class="cold-md-12">
+    <div class="row">
+        <!--<div class="col-md-2" ng-controller="CategoryController">
+            <h3>Categories</h3>
+            </br>
+            <ul id="resultCategoryList" class="nav nav-pills nav-stacked" role="tablist">
+                <li ng-class="{active: tab === category.id}" ng-repeat="category in categories">
+                    <a href="#/nominees" ng-click='getNomineesByCategory(category.id); selectedTab(category.id)'>{{category.name}}</a>
+                </li>
+            </ul>
+        </div>-->
+        <div class="col-md-10" ng-controller="VoteController">
+        <div ng-repeat="nominee in nominees">
+            <div class="col-md-6">
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-xs-3 col-md-3">
+                            <img ng-src="{{nominee.imageUrl}}" class="thumbnail img-responsive" />
+                        </div>
+                        <div class="col-xs-9 col-md-9 text-center">
+                            <h2>{{nominee.name}}</h2>
+                            <p>{{nominee.description}}</p>
+                            <button class="btn btn-primary" ng-click="castVote(tab, nominee.id)">Cast your vote!</button>
+                            <hr />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</div>
+</div>
